@@ -8,9 +8,33 @@
         <title>Redwan Sharafat Kabir</title>
         <link rel="icon" href="images/website_icon.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $(window).scroll(function(){
+                    if($(window).scrollTop > 300){
+                        $('i').css({
+                            "opacity":"1", "pointer-events":"auto"
+                        });
+                    } else {
+                        $('i').css({
+                            "opacity":"0", "pointer-events":"none"
+                        });
+                    }
+                });
+                $('i').click(function(){
+                    $('html').animate({scrollTop:0}, 500);
+                });
+            });
+        </script>
+
     </head>
 
     <body>
+        <i class="fas fa-chevron-up"></i>
         <section id="header">
             <header>
                 <nav>
@@ -31,20 +55,24 @@
             <div id="homeId" class="text-container">
                 <p>Hello,</p>
                 <p>I'M SHARAFAT</p>
-                <p>Android Developer</p>
+                <p>Apps Developer</p>
             </div>
 
-            <img src="" class="model" alt="Profile pic">
+            <div id="lottieId"></div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.14/lottie.min.js"></script>
+            <script src="js/script.js"></script>
+
         </section>
 
         <div id="aboutmeId" class="about-container">
             <img src="images/myself.jpg">
             <div class="about-text">
                 <p>Hello,</p>
-                <p>My name is Redwan Sharafat Kabir. I am an enthusiastic software developer having expertise in Native Android Apps Development.</p>
-                <p>I'm dedicated to give you the best Android Application with focus on Security, Design and User-Friendly System.</p>
+                <p>My name is Redwan Sharafat Kabir. I am an enthusiastic software developer having expertise in Mobile Apps Development.</p>
+                <p>I'm dedicated to giving you the best Mobile Applciaiton with focus on Security, Design, and User-Friendly System.</p>
                 
-                <a href="https://drive.google.com/file/d/1_vwctCBKTRMjKtOfie5iBALL4So1o8Iu/view?usp=sharing" target="_blank">
+                <a href="https://drive.google.com/file/d/1s9nrT_AIPSi_jRUOR5HFsgrsIr6fIOKP/view?usp=sharing" target="_blank">
                     <button class="down-cv">Download CV</button>
                 </a>
                 <a href="#go_top">
@@ -132,7 +160,7 @@
 
         <div class="contact-me">
             <p>If you have any project in your mind</p>
-            
+
             <a href="#go_top">
                 <button>Contact me</button>
             </a>
@@ -185,9 +213,7 @@
                 redwansharafat@gmail.com
             </p>
             
-            <p class="copyright">&copy; 2021 Redwan Sharafat Kabir - All right reserved
-                <a href="#header" id="go_top"><img src="images/bottom_to_top.png"></a>
-            </p>
+            <p class="copyright" id="go_top">&copy; 2021 Redwan Sharafat Kabir - All right reserved</p>
 
         </footer>
 
@@ -199,6 +225,7 @@
         </div>
 
         <script type="text/javascript" src="js/JQuery.js"></script>
+
         <script type="text/javascript">
         $(document).ready(function(){
             $('.toggle').click(function(){

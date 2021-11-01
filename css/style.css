@@ -18,10 +18,29 @@ a{
     text-decoration: none;
 }
 
+i{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 45px;
+    background: #b4b0b0;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 10%;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease-in-out;
+}
+
+i:hover{
+    background: #e2dddd;
+    transition: .5s;
+}
+
 section {
     width: 100%;
     height: 95vh;
-    background-image: url("../images/background_image.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -95,11 +114,13 @@ nav ul li a{
     transform: translate(-13%, -42%);
 }
 
-.model{
-    height: 100%;
+#lottieId {
+    height: 70%;
+    width: 70%;
     position: absolute;
-    left: 95%;
-    transform: translateX(-70%);
+    left: 110%;
+    top: 10%;
+    transform: translateX(-100%);
 }
 
 .about-container{
@@ -584,21 +605,20 @@ footer{
     font-family: calibri;
 }
 
-.copyright img{
-    height: 40px;
-    width: 40px;
-    right: 0px;
-}
-
 @media(max-width:1000px){
     *{
         box-sizing: border-box;
     }
-    .model{
-        height: 460px;
-        left: 90%;
-        transform: translateX(-90%);
+    
+    #lottieId {
+        height: 50%;
+        width: 50%;
+        position: absolute;
+        left: 100%;
+        top: 20%;
+        transform: translateX(-100%);
     }
+
     .text-container{
         top: 46%;
     }
@@ -692,11 +712,6 @@ footer{
         flex-grow: 1;
         margin: 10px;
     }
-    .copyright img{
-        height: 30px;
-        width: 30px;
-        right: 0px;
-    }
 }
 
 @media(max-width:750px){
@@ -704,8 +719,14 @@ footer{
         background-image: none;
         background-color: #f7f7f7;
     }
-    .model{
-        display: none;
+
+    #lottieId {
+        height: 40%;
+        width: 40%;
+        position: absolute;
+        left: 70%;
+        top: 55%;
+        transform: translateX(-100%);
     }
 
     .toggle{
@@ -817,12 +838,6 @@ footer{
     .contact-me button{
         width: 150px;
         height: 33px;
-    }
-    
-    .copyright img{
-        height: 20px;
-        width: 20px;
-        right: 0px;
     }
 
     .copyright{
