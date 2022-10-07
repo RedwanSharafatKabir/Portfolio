@@ -3,211 +3,46 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>Redwan Sharafat Kabir</title>
         <link rel="icon" href="images/website_icon.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-        <script>
-            $(document).ready(function(){
-                $(window).scroll(function(){
-                    if($(window).scrollTop > 300){
-                        $('i').css({
-                            "opacity":"1", "pointer-events":"auto"
-                        });
-                    } else {
-                        $('i').css({
-                            "opacity":"0", "pointer-events":"none"
-                        });
-                    }
-                });
-                $('i').click(function(){
-                    $('html').animate({scrollTop:0}, 500);
-                });
-            });
-        </script>
-
     </head>
 
     <body>
-        <i class="fas fa-chevron-up"></i>
-        <section id="header">
+        <section id="aboutId" class="section_class">
             <header>
                 <nav>
                     <a href="#" class="logo"><img src="images/mylogo.png" alt="logo"></a>
                     <ul>
-                        <li><a href="#homeId">Home</a></li>
-                        <li><a href="#aboutmeId">About</a></li>
-                        <li><a href="#educationId">Education</a></li>
-                        <li><a href="#servicesId">Skills</a></li>
-                        <li><a href="#projectId">Projects</a></li>
-                        <li><a href="#contactId">Contact</a></li>
+                        <li id="aboutNavItemId"><a href="#aboutId"><b>ABOUT</b></a></li>
+                        <li id="educationNavItemId"><a href="#educationId"><b>EDUCATION</b></a></li>
+                        <li id="aboutNavItemId"><a href="#skillsId"><b>SKILLS</b></a></li>
+                        <li id="aboutNavItemId"><a href="#experienceId"><b>EXPERIENCES</b></a></li>
+                        <li id="aboutNavItemId"><a href="#projectId"><b>PROJECTS & PUBLICATIONS</b></a></li>
+                        <li><a id="contactNavItemId" href="#contactId"><b>CONTACT</b></a></li>
                     </ul>
 
                     <div class="toggle"></div>
                 </nav>
             </header>
 
-            <div id="homeId" class="text-container">
-                <p>Hello,</p>
-                <p>I'M SHARAFAT</p>
-                <p>Software Engineer & Researcher</p>
+            <div class="row">
+                <div class="col_2">
+                    <img src="images/myself.png" class="controller">
+                </div>
+
+                <div class="col_1">
+                    <h1>Hello,</h1>
+                    <h2>I'M REDWAN SHARAFAT KABIR</h2>
+                    <p>I am an enthusiastic Software Engineer and Researcher in the fields of IoT & Computer Vision. I am dynamic, team player and always eager to engage with new technologies.</p>
+                </div>
+
             </div>
-
-            <div id="lottieId"></div>
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.14/lottie.min.js"></script>
-            <script src="js/script.js"></script>
 
         </section>
-
-        <div id="aboutmeId" class="about-container">
-            <img src="images/myself.jpg">
-            <div class="about-text">
-                <p>Hello,</p>
-                <p>My name is Redwan Sharafat Kabir.</p>
-                <p>I am an enthusiastic Software Engineer and IoT & Computer Vision Researcher. I am dynamic, team player and always eager to engage with new technologies.</p>
-                
-                <a href="https://drive.google.com/file/d/1d0BZEOKjsGTcAoKH-apcLTxx-ToZNHXB/view?usp=sharing" target="_blank">
-                    <button class="down-cv">Download CV</button>
-                </a>
-                <a href="#go_top">
-                    <button class="hire-btn">Contact me</button>
-                </a>
-
-            </div>
-        </div>
-
-        <div id="educationId" class="education">
-            <div class="education-text">
-                <p>EDUCATION</p>
-            </div>
-
-            <div class="ebox-container">
-                <div class="ebox-1">
-                    <img src="images/graduation.jpg">
-                    <p>B.Sc.</p>
-                    <p>Computer Science & Engineering</p>
-                    <p>Daffodil International University</p>
-                    <p>[2017-2021]</p>
-                </div>
-
-                <div class="ebox-2">
-                    <img src="images/hsc.png">
-                    <p>HSC</p>
-                    <p>BAF Shaheen College, Dhaka</p>
-                    <p>2016</p>
-                </div>
-
-                <div class="ebox-3">
-                    <img src="images/hsc.png">
-                    <p>SSC</p>
-                    <p>Ideal School & College, Motijheel</p>
-                    <p>2014</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="servicesId" class="skill">
-            <div class="skill-text">
-                <p>SKILLS</p>
-            </div>
-
-            <div class="sbox-container1">
-                <div class="sbox-1">
-                    <img src="images/java.png">
-                    <p>Java</p>
-                    <p>Programming Language</p>
-                </div>
-
-                <div class="sbox-2">
-                    <img src="images/kotlin.png">
-                    <p>Kotlin</p>
-                    <p>Programming Language</p>
-                </div>
-
-                <div class="sbox-3">
-                    <img src="images/android.png">
-                    <p>Android</p>
-                    <p>Native Apps</p>
-                </div>
-            </div>
-
-            <div class="sbox-container2">
-                <div class="sbox-4">
-                    <img src="images/mvvm.png">
-                    <p>MVVM</p>
-                    <p>Software Architectural Pattern</p>
-                </div>
-
-                <div class="sbox-5">
-                    <img src="images/firebase.png">
-                    <p>Firebase</p>
-                    <p>Realtime Database</p>
-                </div>
-
-                <div class="sbox-6">
-                    <img src="images/mongorealm.png">
-                    <p>MongoDB & realm</p>
-                    <p>Sync Server and Local DB</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="contact-me">
-            <p>If you have any idea in your mind</p>
-
-            <a href="#go_top">
-                <button>Contact me</button>
-            </a>
-        </div>
-
-        <div id="projectId" class="project">
-            <div class="project-text">
-                <p>PROJECTS</p>
-            </div>
-
-            <div class="pbox-container">
-                <div class="pbox-1">
-                    <img src="images/paribahanlagbe.jpg">
-                    <p>Paribahan Lagbe</p>
-                    <p>Vehicle Hiring App</p>
-                    <a href="https://paribahanlagbe.com/" target="_blank">
-                        <div class="paribahanbutton">
-                            <button>Visit Website</button>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="pbox-2">
-                    <img src="images/thirdhand.jpg">
-                    <p>3rd Hand</p>
-                    <p>Agent Service App</p>
-                    <a href="https://github.com/RedwanSharafatKabir/3rd-Hand" target="_blank">
-                        <div class="thirdHandbutton">
-                            <button>Visit GitHub</button>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="pbox-3">
-                    <img src="images/seeinme.jpg">
-                    <p>See In Me</p>
-                    <p>Image Detecting App</p>
-                    <a href="https://github.com/RedwanSharafatKabir/SeeInMe" target="_blank">
-                        <div class="seeinmebutton">
-                            <button>Visit GitHub</button>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-        </div>
 
         <footer id="contactId">
             <div class="social-icons">
@@ -238,12 +73,13 @@
         <script type="text/javascript" src="js/JQuery.js"></script>
 
         <script type="text/javascript">
-        $(document).ready(function(){
-            $('.toggle').click(function(){
-                $('.toggle').toggleClass('active')
-                $('nav').toggleClass('active')
+            $(document).ready(function(){
+                $('.toggle').click(function(){
+                    $('.toggle').toggleClass('active')
+                    $('nav').toggleClass('active')
+                })
             })
-        })
+
         </script>
 
     </body>
