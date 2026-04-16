@@ -1,782 +1,1224 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Redwan Sharafat Kabir - Personal Website</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redwan Sharafat Kabir — Software Engineer & Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #004052;
+  --primary-light: #005a73;
+  --primary-dark: #002a37;
+  --accent: #4ade80;
+  --accent-hover: #22c55e;
+  --bg: #0a0f14;
+  --bg2: #0f1921;
+  --bg3: #162331;
+  --surface: #1a2d3d;
+  --surface2: #1f3347;
+  --border: rgba(0,64,82,0.4);
+  --text: #e8f4f8;
+  --text2: #8cb4c4;
+  --text3: #5a8a9a;
+  --white: #ffffff;
+  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+  --glow: 0 0 30px rgba(74,222,128,0.15);
+}
+[data-theme="light"] {
+  --bg: #f0f6f9;
+  --bg2: #e4eff4;
+  --bg3: #d4e8f0;
+  --surface: #ffffff;
+  --surface2: #e8f3f8;
+  --border: rgba(0,64,82,0.2);
+  --text: #0d2b37;
+  --text2: #2d5f75;
+  --text3: #4a8a9a;
+  --shadow: 0 20px 60px rgba(0,64,82,0.12);
+  --glow: 0 0 30px rgba(74,222,128,0.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  transition:background 0.3s,color 0.3s;
+}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--primary-light);border-radius:2px}
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+/* ====== NAV ====== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  background:rgba(10,15,20,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:background 0.3s;
+}
+[data-theme="light"] nav{background:rgba(240,246,249,0.88)}
+.nav-logo{
+  font-family:sans-serif;font-weight:800;font-size:1.2rem;
+  color:var(--accent);letter-spacing:-0.5px;text-decoration:none;
+}
+.nav-logo span{color:var(--text);font-weight:400}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:0.85rem;font-weight:500;text-decoration:none;
+  color:var(--text2);letter-spacing:0.5px;text-transform:uppercase;
+  transition:color 0.2s;padding:4px 0;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--accent);transition:width 0.3s;
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.theme-toggle{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:50px;padding:6px 14px;cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+  font-size:0.78rem;font-weight:500;color:var(--text2);
+  transition:all 0.2s;font-family:'DM Mono',monospace;
+}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.theme-toggle .icon{font-size:1rem;transition:transform 0.4s}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  cursor:pointer;padding:8px;border:none;background:none;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;
+  background:var(--text);border-radius:2px;transition:all 0.3s;
+}
+.mobile-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;z-index:999;
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:1.5rem 5%;flex-direction:column;gap:1rem;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-size:1rem;font-weight:500;color:var(--text2);text-decoration:none;
+  text-transform:uppercase;letter-spacing:0.5px;padding:0.5rem 0;
+  border-bottom:1px solid var(--border);transition:color 0.2s;
+}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{color:var(--accent)}
 
-  <!-- =======================================================
-  * Template Name: MyResume
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+/* ====== HERO ====== */
+#home{
+  min-height:100vh;padding-top:68px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 50%, rgba(0,64,82,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(74,222,128,0.06) 0%, transparent 50%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  opacity:0.3;
+}
+.hero-inner{
+  position:relative;z-index:1;
+  width:90%;max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);
+  border-radius:50px;padding:6px 16px;
+  font-size:0.78rem;font-family:'DM Mono',monospace;color:var(--accent);
+  margin-bottom:1.5rem;letter-spacing:0.5px;
+}
+.hero-badge .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 
+h1.hero-title{
+  font-family:sans-serif;font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:800;line-height:1.1;letter-spacing:-1.5px;
+  margin-bottom:1rem;
+}
+
+h1.hero-title .name{color:var(--accent)}
+.hero-sub{
+  font-size:1.1rem;color:var(--text2);max-width:480px;
+  margin-bottom:2rem;line-height:1.7;
+}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{
+  background:var(--accent);color:#0a1a12;
+  padding:12px 28px;border-radius:8px;
+  font-weight:700;font-size:0.9rem;text-decoration:none;
+  border:2px solid var(--accent);transition:all 0.2s;
+  letter-spacing:0.3px;
+}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);transform:translateY(-2px);box-shadow:var(--glow)}
+.btn-outline{
+  background:transparent;color:var(--text);
+  padding:12px 28px;border-radius:8px;
+  font-weight:500;font-size:0.9rem;text-decoration:none;
+  border:2px solid var(--border);transition:all 0.2s;
+}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2rem}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent)}
+.stat-label{font-size:0.78rem;color:var(--text3);letter-spacing:0.5px;text-transform:uppercase}
+
+/* HERO CARD */
+.hero-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:2rem;
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:'';position:absolute;top:-1px;left:20%;right:20%;
+  height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
+}
+.hc-avatar{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-family:sans-serif;font-size:2rem;font-weight:800;
+  color:white;margin-bottom:1.2rem;
+  box-shadow:0 0 0 4px var(--bg2),0 0 0 6px var(--primary-light);
+}
+.hc-name{font-family:sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.hc-role{font-size:0.83rem;color:var(--accent);font-family:'DM Mono',monospace;margin-bottom:1.2rem}
+.hc-info{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.4rem}
+.hc-info-row{display:flex;align-items:center;gap:10px;font-size:0.83rem;color:var(--text2)}
+.hc-info-row .ico{font-size:0.9rem;width:20px;text-align:center}
+.hc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  background:rgba(0,64,82,0.4);border:1px solid var(--border);
+  border-radius:4px;padding:3px 10px;font-size:0.74rem;
+  color:var(--text2);font-family:'DM Mono',monospace;
+}
+
+/* ====== SECTIONS ====== */
+section{padding:90px 5%;max-width:1200px;margin:0 auto}
+.full-section{padding:90px 5%;max-width:100%}
+.section-label{
+  display:inline-block;font-family:'DM Mono',monospace;
+  font-size:0.75rem;color:var(--accent);letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:0.7rem;
+}
+.section-title{
+  font-family:sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:800;letter-spacing:-1px;margin-bottom:1rem;
+  color:var(--text);
+}
+.section-title span{color:var(--accent)}
+.section-desc{color:var(--text2);max-width:520px;font-size:1rem;line-height:1.7;margin-bottom:3rem}
+.divider{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  margin-bottom:3rem;border-radius:2px;
+}
+
+/* ====== ABOUT ====== */
+#about{max-width:1200px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--text2);line-height:1.8;margin-bottom:1rem;font-size:0.98rem}
+.about-text p strong{color:var(--text);font-weight:500}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.highlight-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:1.2rem;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.highlight-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.hc-icon{font-size:1.5rem;margin-bottom:0.6rem}
+.hc-hl-title{font-weight:600;font-size:0.88rem;margin-bottom:4px;color:var(--text)}
+.hc-hl-text{font-size:0.8rem;color:var(--text3)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{
+  content:'';position:absolute;left:8px;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--accent),transparent);
+}
+.tl-item{position:relative;margin-bottom:2rem}
+.tl-dot{
+  position:absolute;left:-2rem;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 3px var(--bg),0 0 0 5px rgba(74,222,128,0.2);
+}
+.tl-period{
+  font-family:'DM Mono',monospace;font-size:0.74rem;
+  color:var(--accent);letter-spacing:0.5px;margin-bottom:4px;
+}
+.tl-title{font-family:sans-serif;font-weight:700;font-size:1rem;margin-bottom:2px}
+.tl-place{font-size:0.83rem;color:var(--text3);margin-bottom:6px;font-style:italic}
+.tl-desc{font-size:0.83rem;color:var(--text2);line-height:1.6}
+.tl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.tl-tag{
+  background:rgba(0,64,82,0.3);border:1px solid var(--border);
+  border-radius:3px;padding:2px 8px;font-size:0.72rem;
+  color:var(--text3);font-family:'DM Mono',monospace;
+}
+
+/* ====== SKILLS ====== */
+#skills{background:var(--bg2);padding:90px 0}
+#skills .inner{max-width:1200px;margin:0 auto;padding:0 5%}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem}
+.skill-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:1.2rem 1rem;text-align:center;
+  transition:all 0.25s;cursor:default;
+}
+
+.skill-icon{
+  font-size:2rem;margin-bottom:0.5rem;
+  color: #4f46e5;
+}
+
+.skill-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.3),0 0 20px rgba(74,222,128,0.1)}
+.skill-name{font-size:0.8rem;font-weight:600;color:var(--text);font-family:'DM Mono',monospace}
+.skill-cat{font-size:0.7rem;color:var(--text3);margin-top:2px}
+
+/* ====== EXPERIENCE ====== */
+#experience{max-width:1200px}
+.exp-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:2rem;margin-bottom:1.5rem;
+  position:relative;overflow:hidden;transition:all 0.25s;
+}
+.exp-card:hover{border-color:var(--accent);box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+.exp-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:linear-gradient(to bottom,var(--accent),transparent);
+}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem}
+.exp-title{font-family:sans-serif;font-weight:700;font-size:1.1rem}
+.exp-period{
+  font-family:'DM Mono',monospace;font-size:0.78rem;
+  background:rgba(74,222,128,0.1);color:var(--accent);
+  border:1px solid rgba(74,222,128,0.2);border-radius:4px;
+  padding:3px 10px;white-space:nowrap;
+}
+.exp-company{font-size:0.88rem;color:var(--text3);margin-bottom:1rem;font-style:italic}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.exp-list li{
+  font-size:0.88rem;color:var(--text2);padding-left:1.2rem;
+  position:relative;line-height:1.6;
+}
+.exp-list li::before{
+  content:'▹';position:absolute;left:0;color:var(--accent);font-size:0.8rem;
+}
+
+/* ====== SERVICES ====== */
+#services{background:var(--bg2);padding:90px 0}
+#services .inner{max-width:1200px;margin:0 auto;padding:0 5%}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.service-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;transition:all 0.3s;
+}
+.service-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:var(--shadow)}
+.service-img{
+  height:160px;background:var(--surface2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;position:relative;overflow:hidden;
+}
+.service-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 50%,var(--surface));
+}
+.service-body{padding:1.5rem}
+.service-title{font-family:sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.5rem}
+.service-desc{font-size:0.85rem;color:var(--text2);line-height:1.6}
+
+/* ====== PROJECTS ====== */
+#projects{max-width:1200px}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.project-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;transition:all 0.3s;
+}
+.project-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:var(--shadow)}
+.project-img{
+  height:180px;display:flex;align-items:center;justify-content:center;
+  font-size:4rem;position:relative;
+  background:linear-gradient(135deg,var(--surface2),var(--bg3));
+}
+.project-badge{
+  position:absolute;top:12px;right:12px;
+  background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);
+  border-radius:4px;padding:3px 10px;
+  font-size:0.72rem;font-family:'DM Mono',monospace;color:var(--accent);
+}
+.project-body{padding:1.5rem}
+.project-title{font-family:sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.5rem}
+.project-desc{font-size:0.85rem;color:var(--text2);line-height:1.6;margin-bottom:1rem}
+.project-tech{display:flex;flex-wrap:wrap;gap:5px}
+.ptech{
+  background:rgba(0,64,82,0.35);border:1px solid var(--border);
+  border-radius:3px;padding:2px 8px;font-size:0.72rem;
+  color:var(--text3);font-family:'DM Mono',monospace;
+}
+
+/* ====== PUBLICATIONS ====== */
+#publications{background:var(--bg2);padding:90px 0}
+#publications .inner{max-width:1200px;margin:0 auto;padding:0 5%}
+.pub-grid{display:flex;flex-direction:column;gap:1.5rem}
+.pub-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:0;overflow:hidden;transition:all 0.3s;
+  display:grid;grid-template-columns:200px 1fr;
+}
+.pub-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.pub-img{
+  background:linear-gradient(135deg,var(--primary-dark),var(--primary-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;color:rgba(255,255,255,0.3);position:relative;
+}
+.pub-img-inner{text-align:center}
+.pub-img-icon{font-size:2.5rem;margin-bottom:0.3rem}
+.pub-img-type{
+  font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.5);
+  letter-spacing:1px;text-transform:uppercase;
+}
+.pub-body{padding:1.5rem}
+.pub-type-badge{
+  display:inline-block;
+  background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);
+  border-radius:3px;padding:2px 10px;
+  font-size:0.72rem;font-family:'DM Mono',monospace;color:var(--accent);
+  margin-bottom:0.8rem;letter-spacing:0.5px;
+}
+.pub-title{font-family:sans-serif;font-weight:700;font-size:1rem;line-height:1.4;margin-bottom:0.6rem;color:var(--text)}
+.pub-venue{font-size:0.83rem;color:var(--text2);font-style:italic;margin-bottom:0.8rem;line-height:1.5}
+.pub-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.8rem}
+.pub-meta-item{
+  display:flex;align-items:center;gap:5px;
+  font-size:0.76rem;font-family:'DM Mono',monospace;color:var(--text3);
+}
+.pub-meta-item .lbl{color:var(--text2)}
+.pub-authors{font-size:0.8rem;color:var(--text3);margin-bottom:0.5rem}
+
+/* ====== CONTACT ====== */
+#contact{max-width:1200px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info{display:flex;flex-direction:column;gap:1rem}
+.contact-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:1.2rem;display:flex;align-items:center;gap:1rem;
+  transition:all 0.2s;text-decoration:none;color:inherit;
+}
+.contact-card:hover{border-color:var(--accent);transform:translateX(5px)}
+.cc-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.cc-label{font-size:0.75rem;color:var(--text3);font-family:'DM Mono',monospace;letter-spacing:0.5px;margin-bottom:2px}
+.cc-val{font-size:0.9rem;font-weight:500;color:var(--text)}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:0.8rem;font-weight:500;color:var(--text2);font-family:'DM Mono',monospace}
+.form-group input,.form-group textarea{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:12px 16px;
+  color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;
+  outline:none;transition:border-color 0.2s;resize:vertical;
+}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{min-height:130px}
+.submit-btn{
+  background:var(--accent);color:#0a1a12;
+  padding:13px 28px;border-radius:8px;border:none;cursor:pointer;
+  font-weight:700;font-size:0.95rem;font-family:'DM Sans',sans-serif;
+  transition:all 0.2s;letter-spacing:0.3px;
+}
+.submit-btn:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:var(--glow)}
+
+/* ====== SOCIAL FLOAT ====== */
+.social-float{
+  position:fixed;right:20px;top:50%;transform:translateY(-50%);
+  z-index:500;display:flex;flex-direction:column;gap:10px;
+}
+.sf-link{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:1rem;
+  transition:all 0.2s;position:relative;
+}
+.sf-link:hover{background:var(--accent);border-color:var(--accent);transform:scale(1.1);box-shadow:var(--glow)}
+.sf-link svg{width:18px;height:18px;fill:var(--text2);transition:fill 0.2s}
+.sf-link:hover svg{fill:#0a1a12}
+.sf-tooltip{
+  position:absolute;right:50px;background:var(--surface2);
+  border:1px solid var(--border);border-radius:6px;
+  padding:4px 10px;font-size:0.72rem;color:var(--text);
+  white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.2s;
+  font-family:'DM Mono',monospace;
+}
+.sf-link:hover .sf-tooltip{opacity:1}
+
+/* ====== FOOTER ====== */
+footer{
+  background:var(--bg2);border-top:1px solid var(--border);
+  padding:2rem 5%;text-align:center;
+}
+.footer-text{font-size:0.82rem;color:var(--text3);font-family:'DM Mono',monospace}
+.footer-text span{color:var(--accent)}
+
+/* ====== ANIMATIONS ====== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* ====== RESPONSIVE ====== */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-card{max-width:380px}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .pub-card{grid-template-columns:1fr}
+  .pub-img{height:120px}
+  nav .nav-links,.nav-right .theme-toggle{display:none}
+  .hamburger{display:flex}
+  .mobile-menu .theme-toggle-mobile{display:flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--border);border-radius:50px;padding:6px 14px;width:fit-content;font-size:0.8rem;color:var(--text2);background:var(--surface);font-family:'DM Mono',monospace}
+  .social-float{display:none}
+}
+@media(max-width:600px){
+  section,#skills .inner,#services .inner,#publications .inner{padding:60px 4%}
+  .about-highlights{grid-template-columns:1fr}
+  .hero-stats{gap:1.2rem}
+  .skills-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+  .projects-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+<body>
 
-<body class="index-page">
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">RSK<span>.dev</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experiences</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+      <span class="icon">🌙</span><span id="themeLabel">Dark</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()" id="hambBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-  <header id="header" class="header d-flex flex-column justify-content-center">
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#publications" onclick="closeMenu()">Research</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <div class="theme-toggle-mobile" onclick="toggleTheme()">
+    <span id="mobileThemeIcon">🌙</span><span id="mobileThemeLabel">Switch to Light</span>
+  </div>
+</div>
 
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<!-- SOCIAL FLOAT -->
+<div class="social-float">
+  <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank" class="sf-link">
+    <span class="sf-tooltip">LinkedIn</span>
+    <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+  <a href="https://github.com/RedwanSharafatKabir/" target="_blank" class="sf-link">
+    <span class="sf-tooltip">GitHub</span>
+    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+  <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank" class="sf-link">
+    <span class="sf-tooltip">Facebook</span>
+    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+  <a href="mailto:redwansharafat@gmail.com" class="sf-link">
+    <span class="sf-tooltip">Email</span>
+    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  </a>
+</div>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-        <li><a href="#skills"><i class="bi bi-gear"></i><span>Skills</span></a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Experience</span></a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Services</span></a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
-      </ul>
-    </nav>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
-
-      <img src="assets/img/background_wallpaper.jpg" alt="">
-
-      <div class="container" data-aos="zoom-out">
-        <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <h2>Redwan Sharafat Kabir</h2>
-            <p><span class="typed" data-typed-items="Software Engineer, Researcher"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-            <div class="social-links">
-              <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank"><i class="bi bi-linkedin"></i></a>
-              <a href="https://github.com/RedwanSharafatKabir/" target="_blank"><i class="bi bi-github"></i></a>
-            </div>
-          </div>
+<!-- HERO -->
+<section id="home" style="max-width:100%;padding:0">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left fade-in">
+      <div class="hero-badge"><span class="dot"></span>Available for PhD Opportunities</div>
+      <h1 class="hero-title">Redwan<br><span class="name">Sharafat Kabir</span></h1>
+      <p class="hero-sub">
+        <strong>Software Engineer & Researcher</strong> specializing in 
+        <strong>Machine Learning</strong>, <strong>Computer Vision</strong>, and 
+        <strong>Computational Intelligence</strong> — building intelligent systems that matter.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="#publications" class="btn-outline">View Research</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Exp.</span></div>
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Projects</span></div>
+        <div class="stat"><span class="stat-num">M.Sc.</span><span class="stat-label">Researcher</span></div>
+      </div>
+    </div>
+    <div class="hero-right fade-in" style="transition-delay:0.15s">
+      <div class="hero-card">
+        <div class="hc-avatar">RSK</div>
+        <div class="hc-name">Redwan Sharafat Kabir</div>
+        <div class="hc-role">Software Engineer & Researcher</div>
+        <div class="hc-info">
+          <div class="hc-info-row"><span class="ico">📍</span>Dhaka, Bangladesh</div>
+          <div class="hc-info-row"><span class="ico">🎓</span>M.Sc. CSE — Jahangirnagar University</div>
+          <div class="hc-info-row"><span class="ico">💼</span>CloudCoder Limited</div>
+          <div class="hc-info-row"><span class="ico"><i class="fas fa-envelope"></i></span>redwansharafat@gmail.com</div>
+          <div class="hc-info-row"><span class="ico"><i class="fas fa-phone"></i></span>+880 1816817211</div>
         </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/profile_image.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <br><br>
-            <p>I am an enthusiastic Software Engineer and Researcher with strong problem-solving abilities and a deep understanding of Computational Intelligence Algorithms.
-              My primary research interests lie at the intersection of Machine Learning and Artificial Intelligence.<br><br>
-              I am actively seeking an opportunity to pursue a <b>Ph.D.</b> where I can make significant contributions that align with my interests and collaborate with leading experts in the field.</p>
-            <br><br>
-            <h2>Personal Info.</h2>
-            <br>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>28</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Dhaka, Bangladesh</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>redwansharafat@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row skills-content skills-animation">
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>Kotlin</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Java</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Python</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-            
-            <div class="progress">
-              <span class="skill"><span>PyTorch</span> <i class="val">50%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>TensorFlow</span> <i class="val">40%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-          <div class="col-lg-6">
-
-            <div class="progress">
-              <span class="skill"><span>MVVM Architecture (Model View ViewModel)</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Firebase (Realtime Database &amp; FCM)</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Firebase ML Kit</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Realm (Offline Database)</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-            <div class="progress">
-              <span class="skill"><span>Git &amp; GitHub</span> <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Academic &amp; Professional Experiences</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Academic Experience</h3>
-            <div class="resume-item">
-              <h4>Master of Science</h4>
-              <h5>2024 - 2025</h5>
-              <p><em>Dept. of Computer Science and Engineering</em></p>
-              <p><em><b>Jahangirnagar University, Savar, Dhaka, Bangladesh</b></em></p>
-              <p><b>Notable Coursework:</b> Machine Learning, Deep Learning, Computer Vision, Neuroinformatics, Computational Intelligence, Digital Image Processing.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Bachelor of Science</h4>
-              <h5>2017 - 2021</h5>
-              <p><em>Dept. of Computer Science and Engineering</em></p>
-              <p><em><b>Daffodil International University, Savar, Dhaka, Bangladesh</b></em></p>
-              <p><b>Notable Coursework:</b> Data Structure, Algorithms, Software Engineering, Wireless Programming, Web Engineering, System Analysis and Design, Artificial Intelligence, Data Mining.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Higher Secondary School Certificate</h4>
-              <h5>2016</h5>
-              <p><em>Group: Science</em></p>
-              <p><em><b>BAF Shaheen College, Dhaka, Bangladesh</b></em></p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Secondary School Certificate</h4>
-              <h5>2014</h5>
-              <p><em>Group: Science</em></p>
-              <p><em><b>Ideal School and College, Motijheel, Dhaka, Bangladesh</b></em></p>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Software Engineer (Mobile Application)</h4>
-              <h5>2022 - Present</h5>
-              <p><em><b>Cloud-Coder Limited, Gulshan, Dhaka, Bangladesh</b></em></p>
-              <ul>
-                <li>Developed <a href="https://jiff.live" target="_blank"><b>JIFF</b></a>, an E-Commerce business management app for social media entrepreneurs, enabling vendors to go live, manage sales, and operate their online businesses seamlessly.</li>
-                <li>Built <a href="https://play.google.com/store/apps/details?id=com.cloud.aim" target="_blank"><b>AIM</b></a>, an AI-powered assistant app for booking appointments and selling products and services fully managed through voice based automation.</li>
-                <li>Engineered a TRP (Television Rating Point) analytics app integrating a TensorFlow Lite model for channel logo detection and Perceptual Hash Algorithm for matching television screen images to monitor real time viewership data.</li>
-                <li>Designed and developed Android applications using Kotlin Java, and MVVM architecture pattern.</li>
-                <li>Integrated RESTful APIs, Firebase, SQLite and Realm for seamless backend communication and local data storage.</li>
-                <li>Applied Firebase ML Kit and TensorFlow Lite to implement intelligent features and machine learning capabilities in mobile apps.</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>Android Developer</h4>
-              <h5>1 Apr 2021 - 31 Jul 2021</h5>
-              <p><em><b>Janata Wifi Limited, Banani, Dhaka, Bangladesh</b></em></p>
-              <ul>
-                <li>Designed and developed Android applications using Java.</li>
-                <li>Created responsive UI/UX with XML.</li>
-                <li>Integrated RESTful APIs, Firebase Real time Database for seamless backend communication.</li>
-                <li>Incorporated SQLite for local data storage.</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Card</li>
-            <li data-filter=".filter-branding">Web</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
-                </svg>
-                <i class="bi bi-activity"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Nesciunt Mete</h3>
-              </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
-                </svg>
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Eosle Commodi</h3>
-              </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"></path>
-                </svg>
-                <i class="bi bi-easel"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Ledo Markt</h3>
-              </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"></path>
-                </svg>
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Asperiores Commodit</h3>
-              </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
-                </svg>
-                <i class="bi bi-calendar4-week icon"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Velit Doloremque</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <div class="icon">
-                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"></path>
-                </svg>
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <a href="#" class="stretched-link">
-                <h3>Dolori Architecto</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>South Dhaka, Bangladesh</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call</h3>
-                <p>+880 1816817211</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email</h3>
-                <p>redwansharafat@gmail.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <h3 class="sitename">Redwan Sharafat Kabir</h3>
-      <p>Get in touch through social media.</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/RedwanSharafatKabir/" target="_blank"><i class="bi bi-github"></i></a>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <span>&copy; 2025</span> <strong class="px-1 sitename">Redwan Sharafat Kabir</strong> <span>All Rights Reserved</span>
+        <div class="hc-tags">
+          <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
+          <span class="tag">Compputer Vision</span>
+          <span class="tag">Android</span><span class="tag">iOS</span>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- ABOUT -->
+<section id="about">
+  <div class="fade-in">
+    <div class="section-label">01 — About</div>
+    <h2 class="section-title">Who I <span>Am</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>I am an <strong>enthusiastic Software Engineer and Researcher</strong> with strong problem-solving abilities and a deep understanding of Computational Intelligence Algorithms. My primary research interests lie at the intersection of <strong>Machine Learning and Artificial Intelligence</strong>.</p>
+      <p>With a Master's degree from Jahangirnagar University and a Bachelor's from Daffodil International University, I have built production-grade mobile applications and developed ML-powered solutions for real-world challenges.</p>
+      <p>I am actively seeking an opportunity to pursue a <strong>Ph.D.</strong> where I can make significant contributions aligned with my interests and collaborate with leading experts in the field.</p>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="hc-icon">🧠</div>
+          <div class="hc-hl-title">AI Research</div>
+          <div class="hc-hl-text">Deep Learning, Computer Vision, Computational Intelligence</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-icon">📱</div>
+          <div class="hc-hl-title">Mobile Dev</div>
+          <div class="hc-hl-text">Flutter, Kotlin, Android — production-ready apps</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-icon">🎓</div>
+          <div class="hc-hl-title">PhD Seeking</div>
+          <div class="hc-hl-text">Open to international PhD opportunities in ML/AI</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-icon">🔬</div>
+          <div class="hc-hl-title">M.Sc. Research</div>
+          <div class="hc-hl-text">Neuroinformatics, Digital Image Processing</div>
+        </div>
+      </div>
+    </div>
+    <div class="fade-in" style="transition-delay:0.15s">
+      <div class="section-label" style="margin-bottom:1.2rem">Academic Timeline</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2024 — 2025</div>
+          <div class="tl-title">Master of Science — CSE</div>
+          <div class="tl-place">Jahangirnagar University, Savar, Dhaka</div>
+          <div class="tl-tags">
+            <span class="tl-tag">Machine Learning</span><span class="tl-tag">Deep Learning</span>
+            <span class="tl-tag">Computer Vision</span><span class="tl-tag">Neuroinformatics</span>
+            <span class="tl-tag">Computational Intelligence</span><span class="tl-tag">Digital Image Processing</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2017 — 2021</div>
+          <div class="tl-title">Bachelor of Science — CSE</div>
+          <div class="tl-place">Daffodil International University, Savar, Dhaka</div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+          <div class="tl-tags">
+            <span class="tl-tag">Data Structures</span><span class="tl-tag">Algorithms</span>
+            <span class="tl-tag">Software Engineering</span><span class="tl-tag">Wireless Programming</span>
+            <span class="tl-tag">System Analysis and Design</span>
+            <span class="tl-tag">Data Mining</span><span class="tl-tag">Artificial Intelligence</span>
+          </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2016</div>
+          <div class="tl-title">HSC — Science</div>
+          <div class="tl-place">BAF Shaheen College, Dhaka</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2014</div>
+          <div class="tl-title">SSC — Science</div>
+          <div class="tl-place">Ideal School and College, Motijheel, Dhaka</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- SKILLS -->
+<div id="skills">
+  <div class="inner">
+    <div class="fade-in">
+      <div class="section-label">02 — Skills</div>
+      <h2 class="section-title">Technical <span>Expertise</span></h2>
+      <div class="divider"></div>
+    </div>
 
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-flutter-plain colored"></i></div>
+        <div class="skill-name">Flutter</div>
+        <div class="skill-cat">Mobile</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-dart-plain colored"></i></div>
+        <div class="skill-name">Dart</div>
+        <div class="skill-cat">Language</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-kotlin-plain colored"></i></div>
+        <div class="skill-name">Kotlin</div>
+        <div class="skill-cat">Android</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-java-plain colored"></i></div>
+        <div class="skill-name">Java</div>
+        <div class="skill-cat">Android</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+        <div class="skill-name">MVVM</div>
+        <div class="skill-cat">Architecture</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-python-plain colored"></i></div>
+        <div class="skill-name">Python</div>
+        <div class="skill-cat">AI/ML</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-pytorch-original colored"></i></div>
+        <div class="skill-name">PyTorch</div>
+        <div class="skill-cat">Deep Learning</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-tensorflow-original colored"></i></div>
+        <div class="skill-name">TensorFlow</div>
+        <div class="skill-cat">Deep Learning</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-firebase-plain colored"></i></div>
+        <div class="skill-name">Firebase</div>
+        <div class="skill-cat">Database</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="fas fa-database"></i></div>
+        <div class="skill-name">Realm</div>
+        <div class="skill-cat">No SQL</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-html5-plain colored"></i></div>
+        <div class="skill-name">HTML/CSS</div>
+        <div class="skill-cat">Frontend</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
+        <div class="skill-name">Git & GitHub</div>
+        <div class="skill-cat">DevOps</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="fade-in">
+    <div class="section-label">03 — Experience</div>
+    <h2 class="section-title">Professional <span>Journey</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="exp-card fade-in">
+    <div class="exp-header">
+      <div class="exp-title">Software Engineer — Mobile Application</div>
+      <span class="exp-period">2022 — Present</span>
+    </div>
+    <div class="exp-company">CloudCoder Limited · Gulshan, Dhaka, Bangladesh</div>
+    <ul class="exp-list">
+      <li>Developed JIFF, an E-Commerce business management app for social media entrepreneurs, enabling vendors to go live, manage sales, and operate online businesses seamlessly.</li>
+      <li>Built AIM, an AI-powered assistant app for booking appointments and selling products/services fully managed through voice-based automation.</li>
+      <li>Engineered a TRP (Television Rating Point) analytics app integrating a TensorFlow Lite model for channel logo detection and Perceptual Hash Algorithm for matching television screen images to monitor real-time viewership data.</li>
+      <li>Designed and developed Android applications using Kotlin, Java, and MVVM architecture pattern.</li>
+      <li>Integrated RESTful APIs, Firebase, SQLite and Realm for seamless backend communication and local data storage.</li>
+      <li>Applied Firebase ML Kit and TensorFlow Lite to implement intelligent features and machine learning capabilities in mobile apps.</li>
+    </ul>
+  </div>
+  <div class="exp-card fade-in">
+    <div class="exp-header">
+      <div class="exp-title">Android Developer</div>
+      <span class="exp-period">Apr 2021 — Jul 2021</span>
+    </div>
+    <div class="exp-company">Janata Wifi Limited · Banani, Dhaka, Bangladesh</div>
+    <ul class="exp-list">
+      <li>Designed and developed Android applications using Java with clean architectural principles.</li>
+      <li>Created responsive UI/UX layouts with XML for varied device form factors.</li>
+      <li>Integrated RESTful APIs and Firebase Realtime Database for seamless backend communication.</li>
+      <li>Incorporated SQLite for offline-capable local data storage solutions.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="inner">
+    <div class="fade-in">
+      <div class="section-label">04 — Services</div>
+      <h2 class="section-title">What I <span>Offer</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-img">📱</div>
+        <div class="service-body">
+          <div class="service-title">Mobile App Development</div>
+          <div class="service-desc">End-to-end native and cross-platform mobile applications using Flutter, Kotlin, and Java. From architecture design to App Store deployment with clean MVVM patterns.</div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-img">🧠</div>
+        <div class="service-body">
+          <div class="service-title">ML Model Integration</div>
+          <div class="service-desc">Integrating TensorFlow Lite, PyTorch models, and Firebase ML Kit into production applications. On-device inference, model optimization, and real-time AI features.</div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-img">👁️</div>
+        <div class="service-body">
+          <div class="service-title">Computer Vision Solutions</div>
+          <div class="service-desc">Custom computer vision pipelines for object detection, image classification, logo recognition, and visual analytics using state-of-the-art deep learning frameworks.</div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-img">🔬</div>
+        <div class="service-body">
+          <div class="service-title">AI Research & Consulting</div>
+          <div class="service-desc">Research consultation, literature reviews, experimental design, and implementation of computational intelligence algorithms for academic and industrial problems.</div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-img">🎙️</div>
+        <div class="service-body">
+          <div class="service-title">Voice & Conversational AI</div>
+          <div class="service-desc">Building voice-driven automation systems and AI assistants. Experience with voice commerce, appointment booking, and NLP-powered conversational interfaces.</div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-img">📊</div>
+        <div class="service-body">
+          <div class="service-title">Data Analytics & Visualization</div>
+          <div class="service-desc">Data pipeline design, exploratory analysis, and insightful visualization dashboards. Transforming raw data into actionable intelligence for business decisions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="fade-in">
+    <div class="section-label">05 — Projects</div>
+    <h2 class="section-title">Featured <span>Works</span></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-img">🛍️<span class="project-badge">Conversational Commerce</span></div>
+      <div class="project-body">
+        <div class="project-title">JIFF - Social Commerce Platform</div>
+        <div class="project-desc">A comprehensive e-commerce business management app for social media entrepreneurs, enabling live selling, order management, vendor dashboards, and seamless business operations.</div>
+        <div class="project-tech">
+          <span class="ptech">Flutter</span><span class="ptech">Dart</span><span class="ptech">Firebase</span><span class="ptech">RESTful API</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-card fade-in">
+      <div class="project-img">🎙️<span class="project-badge">AI-Powered Assistant</span></div>
+      <div class="project-body">
+        <div class="project-title">AIM - Voice AI Commerce Assistant</div>
+        <div class="project-desc">An intelligent voice-first assistant app for booking appointments and selling products/services, fully controlled through natural language voice commands and automation.</div>
+        <div class="project-tech">
+          <span class="ptech">Kotlin</span><span class="ptech">MVVM</span><span class="ptech">Voice NLP</span><span class="ptech">Firebase</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-img">📺<span class="project-badge">Realtime Viewership Analysis</span></div>
+      <div class="project-body">
+        <div class="project-title">TRP Analytics System</div>
+        <div class="project-desc">Real-time Television Rating Point monitoring app using TensorFlow Lite for channel logo detection and Perceptual Hash Algorithm for viewership data analysis.</div>
+        <div class="project-tech">
+          <span class="ptech">TFLite</span><span class="ptech">pHash</span><span class="ptech">Android</span><span class="ptech">CV</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<div id="publications">
+  <div class="inner">
+    <div class="fade-in">
+      <div class="section-label">06 — Research</div>
+      <h2 class="section-title">Research & <span>Publications</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="pub-grid">
+
+      <!-- <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">📄</div>
+            <div class="pub-img-type">Journal</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">JOURNAL ARTICLE</span>
+          <div class="pub-title">Deep Convolutional Neural Networks for Real-Time Channel Logo Detection in Broadcast Media Analytics</div>
+          <div class="pub-authors">Redwan Sharafat Kabir, Co-Author A, Co-Author B</div>
+          <div class="pub-venue">Expert Systems with Applications — Elsevier, Vol. 238, 2024</div>
+          <div class="pub-meta">
+            <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1016/j.eswa.2024.00123</div>
+            <div class="pub-meta-item"><span class="lbl">Publisher:</span>Elsevier</div>
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2024</div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">🏛️</div>
+            <div class="pub-img-type">Conference</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">ACCEPTED [IN PRESS]</span>
+          <div class="pub-title">Lung-DLNet: A Novel Deep Learning Application Architecture for Rapid and Early Prediction of Lung Cancer using CT Imaging</div>
+          <div class="pub-authors">Redwan Sharafat Kabir, Md Abu Sayem</div>
+          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>16th International Conference on Cloud Computing, Data Science & Engineering</div>
+          <div class="pub-meta">
+            <!-- <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1007/978-981-99-0000-0_12</div> -->
+            <div class="pub-meta-item"><span class="lbl">Book Proceedings:</span>Recent Trends in Artificial Intelligence and Data Sciences</div>
+            <div class="pub-meta-item"><span class="lbl">Publisher:</span>Springer Nature Link (Scopus Indexed)</div>
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">🏛️</div>
+            <div class="pub-img-type">Conference</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">ACCEPTED [IN PRESS]</span>
+          <div class="pub-title">A Low-Cost and Scalable ARM-Based TRP Measurement System Using a Real-Time Perceptual Hashing Algorithm</div>
+          <div class="pub-authors">Md Tarik Hossain, N M Rafsan Jany Samir, Tukrim Sohorabil, Md Abu Sayem, Redwan Sharafat Kabir, Wahid Niazy</div>
+          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>1st IEEE International Conference on Innovation & Growth in Next-Gen Intelligent Technology & Engineering (IGNITE-2026)</div>
+          <div class="pub-meta">
+            <!-- <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1007/978-981-99-0000-0_12</div> -->
+            <div class="pub-meta-item"><span class="lbl">Publisher:</span>IEEE (Scopus Indexed)</div>
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">🏛️</div>
+            <div class="pub-img-type">Conference</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">PUBLISHED</span>
+          <div class="pub-title">Comprehensive Multimodal Deep Learning Solution for Parkinson's Disease Diagnosis Using an Android Application</div>
+          <div class="pub-authors">Md Abu Sayem, Redwan Sharafat Kabir</div>
+          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>IEEE Computer Society Bangladesh Chapter Symposium 2024 At: Jagannath University, Dhaka, Bangladesh</div>
+          <div class="pub-meta">
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">🏛️</div>
+            <div class="pub-img-type">Conference</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">PUBLISHED</span>
+          <div class="pub-title">Image-Based Automatic Price Calculation of Packaged Product to Guide Visually Impaired People</div>
+          <div class="pub-authors">Rakibuzzaman Melon, Md Abu Sayem, Redwan Sharafat Kabir</div>
+          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>International Conference on 4IR for Emerging Future -2022 At: Dhaka, Bangladesh</div>
+          <div class="pub-meta">
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">🏛️</div>
+            <div class="pub-img-type">Conference</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">PUBLISHED</span>
+          <div class="pub-title">IOT-BASED GLOBAL POSITION MONITORING AND TRACKING OF THE MOTORIZED TRANSPORTATION SYSTEM</div>
+          <div class="pub-authors">Md Abu Sayem, Md. Siddiqur Rahman, Redwan Sharafat Kabir</div>
+          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>“Integrated Approach for Adapting 4IR” -BCSIR Congress-2022 Bangladesh Council of Scientific and Industrial Research (BCSIR)</div>
+          <div class="pub-meta">
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">🏛️</div>
+            <div class="pub-img-type">Conference</div>
+          </div>
+        </div>
+
+        <div class="pub-body">
+          <span class="pub-type-badge">PUBLISHED</span>
+          <div class="pub-title">Automatic Digital Car Parking Control System with Empty Slot Detection</div>
+          <div class="pub-authors">Md Abu Sayem, Md. Siddiqur Rahman, Redwan Sharafat Kabir</div>
+          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>International Conference on 4IR for Emerging Future -2022 At: Dhaka, Bangladesh</div>
+          <div class="pub-meta">
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="pub-card fade-in">
+        <div class="pub-img">
+          <div class="pub-img-inner">
+            <div class="pub-img-icon">📘</div>
+            <div class="pub-img-type">Book Chapter</div>
+          </div>
+        </div>
+        <div class="pub-body">
+          <span class="pub-type-badge">BOOK CHAPTER</span>
+          <div class="pub-title">Voice-Driven AI Commerce: Architectures, Challenges, and Future Directions in Conversational Automation</div>
+          <div class="pub-authors">Redwan Sharafat Kabir, Co-Author C</div>
+          <div class="pub-venue">Advances in Artificial Intelligence and Machine Learning Applications — Springer, Chapter 9, 2023</div>
+          <div class="pub-meta">
+            <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1007/978-981-10-0000-9</div>
+            <div class="pub-meta-item"><span class="lbl">Publisher:</span>Springer</div>
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2023</div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <div class="section-label">07 — Contact</div>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="fade-in">
+      
+      
+      <div class="contact-info">
+        <a href="tel:+8801816817211" class="contact-card">
+          <div class="cc-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="cc-label">PHONE</div>
+            <div class="cc-val">+880 1816 817211</div>
+          </div>
+        </a>
+
+        <a href="mailto:redwansharafat@gmail.com" class="contact-card">
+          <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="cc-label">EMAIL</div>
+            <div class="cc-val">redwansharafat@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-linkedin"></i></div>
+          <div>
+            <div class="cc-label">LINKEDIN</div>
+            <div class="cc-val">redwan-sharafat</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/RedwanSharafatKabir/" target="_blank" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-github"></i></div>
+          <div>
+            <div class="cc-label">GITHUB</div>
+            <div class="cc-val">RedwanSharafatKabir</div>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-facebook"></i></div>
+          <div>
+            <div class="cc-label">FACEBOOK</div>
+            <div class="cc-val">RedwanSharafatKabir</div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+    <div class="contact-form fade-in" style="transition-delay:0.15s">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full Name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="emailaddress@example.com">
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" placeholder="Inquiry Subject">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your opportunity or project..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-text">Designed & Built by <span>Redwan Sharafat Kabir</span> · 2026 · All rights reserved</p>
+</footer>
+
+<script>
+// Theme toggle
+let isDark = true;
+function toggleTheme(){
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  document.getElementById('themeBtn').children[0].textContent = isDark ? '🌙' : '☀️';
+  document.getElementById('themeLabel').textContent = isDark ? 'Dark' : 'Light';
+  document.getElementById('mobileThemeIcon').textContent = isDark ? '🌙' : '☀️';
+  document.getElementById('mobileThemeLabel').textContent = isDark ? 'Switch to Light' : 'Switch to Dark';
+}
+
+// Mobile menu
+let menuOpen = false;
+function toggleMenu(){
+  menuOpen = !menuOpen;
+  document.getElementById('mobileMenu').classList.toggle('open', menuOpen);
+}
+function closeMenu(){
+  menuOpen = false;
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Form submit
+function handleSubmit(){
+  alert('Thank you for your message! Redwan will get back to you soon.');
+}
+
+// Close menu on resize
+window.addEventListener('resize', () => {
+  if(window.innerWidth > 900) closeMenu();
+});
+</script>
 </body>
-
 </html>
