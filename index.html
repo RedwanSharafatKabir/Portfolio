@@ -200,20 +200,22 @@ h1.hero-title .name{color:var(--accent)}
   content:'';position:absolute;top:-1px;left:20%;right:20%;
   height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
 }
-.hc-avatar{
-  width:90px;height:90px;border-radius:50%;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  display:flex;align-items:center;justify-content:center;
-  font-family:sans-serif;font-size:2rem;font-weight:800;
-  color:white;margin-bottom:1.2rem;
-  box-shadow:0 0 0 4px var(--bg2),0 0 0 6px var(--primary-light);
+
+.hc-avatar-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 0 0 4px var(--bg2), 0 0 0 6px var(--primary-light);
 }
+
 .hc-name{font-family:sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:4px}
 .hc-role{font-size:0.83rem;color:var(--accent);font-family:'DM Mono',monospace;margin-bottom:1.2rem}
 .hc-info{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.4rem}
 .hc-info-row{display:flex;align-items:center;gap:10px;font-size:0.83rem;color:var(--text2)}
 .hc-info-row .ico{font-size:0.9rem;width:20px;text-align:center}
-.hc-tags{display:flex;flex-wrap:wrap;gap:6px}
+
 .tag{
   background:rgba(0,64,82,0.4);border:1px solid var(--border);
   border-radius:4px;padding:3px 10px;font-size:0.74rem;
@@ -244,8 +246,18 @@ section{padding:90px 5%;max-width:1200px;margin:0 auto}
 /* ====== ABOUT ====== */
 #about{max-width:1200px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.about-text p{color:var(--text2);line-height:1.8;margin-bottom:1rem;font-size:0.98rem}
-.about-text p strong{color:var(--text);font-weight:500}
+.about-text p{
+  color:var(--text2);
+  line-height:1.8;
+  margin-bottom:1rem;
+  font-size:0.98rem;
+  text-align: justify;
+}
+.about-text p strong{
+  color:var(--text);
+  font-weight:500;
+  text-align: justify;
+}
 .about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
 .highlight-card{
   background:var(--surface);border:1px solid var(--border);
@@ -352,7 +364,7 @@ section{padding:90px 5%;max-width:1200px;margin:0 auto}
 }
 .service-body{padding:1.5rem}
 .service-title{font-family:sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.5rem}
-.service-desc{font-size:0.85rem;color:var(--text2);line-height:1.6}
+.service-desc{font-size:0.85rem;color:var(--text2);line-height:1.6;}
 
 /* ====== PROJECTS ====== */
 #projects{max-width:1200px}
@@ -594,14 +606,20 @@ footer{
         <a href="#publications" class="btn-outline">View Research</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Exp.</span></div>
-        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Projects</span></div>
-        <div class="stat"><span class="stat-num">M.Sc.</span><span class="stat-label">Researcher</span></div>
+        <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Years Exp.</span></div>
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Publications</span></div>
       </div>
     </div>
+
     <div class="hero-right fade-in" style="transition-delay:0.15s">
       <div class="hero-card">
-        <div class="hc-avatar">RSK</div>
+        <img
+          src="assets/img/profile_image.jpg"
+          alt="RSK"
+          class="hc-avatar-photo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+        />
+        
         <div class="hc-name">Redwan Sharafat Kabir</div>
         <div class="hc-role">Software Engineer & Researcher</div>
         <div class="hc-info">
@@ -611,13 +629,10 @@ footer{
           <div class="hc-info-row"><span class="ico"><i class="fas fa-envelope"></i></span>redwansharafat@gmail.com</div>
           <div class="hc-info-row"><span class="ico"><i class="fas fa-phone"></i></span>+880 1816817211</div>
         </div>
-        <div class="hc-tags">
-          <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
-          <span class="tag">Compputer Vision</span>
-          <span class="tag">Android</span><span class="tag">iOS</span>
-        </div>
+        
       </div>
     </div>
+
   </div>
 </section>
 
@@ -662,7 +677,7 @@ footer{
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-period">2024 - 2025</div>
-          <div class="tl-title">Master of Science - CSE</div>
+          <div class="tl-title">Master of Science - CS</div>
           <div class="tl-place">Jahangirnagar University, Savar, Dhaka</div>
           <div class="tl-tags">
             <span class="tl-tag">Machine Learning</span><span class="tl-tag">Deep Learning</span>
@@ -714,13 +729,13 @@ footer{
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-flutter-plain colored"></i></div>
         <div class="skill-name">Flutter</div>
-        <div class="skill-cat">Mobile</div>
+        <div class="skill-cat">Multi Platform</div>
       </div>
 
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-dart-plain colored"></i></div>
         <div class="skill-name">Dart</div>
-        <div class="skill-cat">Language</div>
+        <div class="skill-cat">Programming</div>
       </div>
 
       <div class="skill-card fade-in">
@@ -744,19 +759,19 @@ footer{
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-python-plain colored"></i></div>
         <div class="skill-name">Python</div>
-        <div class="skill-cat">AI/ML</div>
+        <div class="skill-cat">Programming</div>
       </div>
 
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-pytorch-original colored"></i></div>
         <div class="skill-name">PyTorch</div>
-        <div class="skill-cat">Deep Learning</div>
+        <div class="skill-cat">AI/ML</div>
       </div>
 
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-tensorflow-original colored"></i></div>
         <div class="skill-name">TensorFlow</div>
-        <div class="skill-cat">Deep Learning</div>
+        <div class="skill-cat">AI/ML</div>
       </div>
 
       <div class="skill-card fade-in">
@@ -780,7 +795,7 @@ footer{
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
         <div class="skill-name">Git & GitHub</div>
-        <div class="skill-cat">DevOps</div>
+        <div class="skill-cat">Version Control</div>
       </div>
 
     </div>
