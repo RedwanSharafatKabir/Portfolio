@@ -404,18 +404,32 @@ section{padding:90px 5%;max-width:1200px;margin:0 auto}
   border-radius:16px;padding:0;overflow:hidden;transition:all 0.3s;
   display:grid;grid-template-columns:200px 1fr;
 }
+
 .pub-card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.pub-img{
-  background:linear-gradient(135deg,var(--primary-dark),var(--primary-light));
-  display:flex;align-items:center;justify-content:center;
-  font-size:3rem;color:rgba(255,255,255,0.3);position:relative;
+
+.pub-img {
+  background: linear-gradient(135deg, #b4d7f5, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  color: rgba(0, 0, 0, 0.12);
+  position: relative;
 }
-.pub-img-inner{text-align:center}
-.pub-img-icon{font-size:2.5rem;margin-bottom:0.3rem}
+
+.pub-img-inner{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+
 .pub-img-type{
-  font-family:'DM Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.5);
+  font-family:'DM Mono',monospace;font-size:1rem;color:#00325e;
   letter-spacing:1px;text-transform:uppercase;
 }
+
+.pub-icon-file{
+  width:8rem;height:5rem;object-fit:contain;
+  margin-bottom:0.3rem;display:block;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+}
+
 .pub-body{padding:1.5rem}
 .pub-type-badge{
   display:inline-block;
@@ -425,14 +439,27 @@ section{padding:90px 5%;max-width:1200px;margin:0 auto}
   margin-bottom:0.8rem;letter-spacing:0.5px;
 }
 .pub-title{font-family:sans-serif;font-weight:700;font-size:1rem;line-height:1.4;margin-bottom:0.6rem;color:var(--text)}
-.pub-venue{font-size:0.83rem;color:var(--text2);font-style:italic;margin-bottom:0.8rem;line-height:1.5}
-.pub-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.8rem}
+.pub-authors{font-size:0.83rem;color:var(--text2);margin-bottom:0.5rem;line-height:1.5}
+.pub-citation{
+  font-size:0.83rem;color:var(--text2);line-height:1.6;margin-bottom:0.8rem;
+  padding:0.7rem 0.9rem;background:rgba(0,64,82,0.2);
+  border-left:2px solid var(--accent);border-radius:0 6px 6px 0;
+}
+.pub-citation .cit-label{
+  font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:4px;
+}
+.pub-citation em{color:var(--text);font-style:italic;font-weight:500}
+.pub-meta{display:flex;flex-wrap:wrap;gap:0.8rem;margin-top:0.8rem}
 .pub-meta-item{
   display:flex;align-items:center;gap:5px;
   font-size:0.76rem;font-family:'DM Mono',monospace;color:var(--text3);
 }
-.pub-meta-item .lbl{color:var(--text2)}
-.pub-authors{font-size:0.8rem;color:var(--text3);margin-bottom:0.5rem}
+.pub-meta-item .lbl{color:var(--text2);font-weight:500}
+.pub-note{
+  font-size:0.76rem;color:var(--text3);font-style:italic;
+  margin-top:0.8rem;padding-top:0.7rem;border-top:1px dashed var(--border);
+}
 
 /* ====== CONTACT ====== */
 #contact{max-width:1200px}
@@ -645,7 +672,7 @@ footer{
   <div class="about-grid">
     <div class="about-text fade-in">
       <p>I am an <strong>enthusiastic Software Engineer and Researcher</strong> with strong problem-solving abilities and a deep understanding of Computational Intelligence Algorithms. My primary research interests lie at the intersection of <strong>Machine Learning and Artificial Intelligence</strong>.</p>
-      <p>With a Master's degree from Jahangirnagar University and a Bachelor's from Daffodil International University, I have built production-grade mobile applications and developed ML-powered solutions for real-world challenges.</p>
+      <p>With over four years of experiences, I have built production-grade mobile applications and developed ML-powered solutions for real-world challenges.</p>
       <p>I am actively seeking an opportunity to pursue a <strong>Ph.D.</strong> where I can make significant contributions aligned with my interests and collaborate with leading experts in the field.</p>
       <div class="about-highlights">
         <div class="highlight-card">
@@ -950,31 +977,10 @@ footer{
 
     <div class="pub-grid">
 
-      <!-- <div class="pub-card fade-in">
-        <div class="pub-img">
-          <div class="pub-img-inner">
-            <div class="pub-img-icon">📄</div>
-            <div class="pub-img-type">Journal</div>
-          </div>
-        </div>
-
-        <div class="pub-body">
-          <span class="pub-type-badge">JOURNAL ARTICLE</span>
-          <div class="pub-title">Deep Convolutional Neural Networks for Real-Time Channel Logo Detection in Broadcast Media Analytics</div>
-          <div class="pub-authors">Redwan Sharafat Kabir, Co-Author A, Co-Author B</div>
-          <div class="pub-venue">Expert Systems with Applications — Elsevier, Vol. 238, 2024</div>
-          <div class="pub-meta">
-            <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1016/j.eswa.2024.00123</div>
-            <div class="pub-meta-item"><span class="lbl">Publisher:</span>Elsevier</div>
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2024</div>
-          </div>
-        </div>
-      </div> -->
-
       <div class="pub-card fade-in">
         <div class="pub-img">
           <div class="pub-img-inner">
-            <div class="pub-img-icon">🏛️</div>
+            <img src="assets/img/springer_icon.png" alt="Springer" class="pub-icon-file">
             <div class="pub-img-type">Conference</div>
           </div>
         </div>
@@ -982,42 +988,27 @@ footer{
         <div class="pub-body">
           <span class="pub-type-badge">ACCEPTED [IN PRESS]</span>
           <div class="pub-title">Lung-DLNet: A Novel Deep Learning Application Architecture for Rapid and Early Prediction of Lung Cancer using CT Imaging</div>
-          <div class="pub-authors">Redwan Sharafat Kabir, Md Abu Sayem</div>
-          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>16th International Conference on Cloud Computing, Data Science & Engineering</div>
+          <div class="pub-authors">Authors: <b>Redwan Sharafat Kabir</b>, Md Abu Sayem</div>
+
+          <div class="pub-citation">
+            <span class="cit-label">Citation</span>
+            Kabir, R. S., &amp; Sayem, M. A. "Lung-DLNet: A Novel Deep Learning Application Architecture for Rapid and Early Prediction of Lung Cancer using CT Imaging." <em>Proceedings of the 16th International Conference on Cloud Computing, Data Science &amp; Engineering (Confluence)</em>, 2026.
+          </div>
+
           <div class="pub-meta">
-            <!-- <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1007/978-981-99-0000-0_12</div> -->
             <div class="pub-meta-item"><span class="lbl">Book Proceedings:</span>Recent Trends in Artificial Intelligence and Data Sciences</div>
             <div class="pub-meta-item"><span class="lbl">Publisher:</span>Springer Nature Link (Scopus Indexed)</div>
             <div class="pub-meta-item"><span class="lbl">Year:</span>2026</div>
           </div>
+
+          <div class="pub-note">Note: Proceedings to be published in Springer Nature's book series.</div>
         </div>
       </div>
 
       <div class="pub-card fade-in">
         <div class="pub-img">
           <div class="pub-img-inner">
-            <div class="pub-img-icon">🏛️</div>
-            <div class="pub-img-type">Conference</div>
-          </div>
-        </div>
-
-        <div class="pub-body">
-          <span class="pub-type-badge">ACCEPTED [IN PRESS]</span>
-          <div class="pub-title">A Low-Cost and Scalable ARM-Based TRP Measurement System Using a Real-Time Perceptual Hashing Algorithm</div>
-          <div class="pub-authors">Md Tarik Hossain, N M Rafsan Jany Samir, Tukrim Sohorabil, Md Abu Sayem, Redwan Sharafat Kabir, Wahid Niazy</div>
-          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>1st IEEE International Conference on Innovation & Growth in Next-Gen Intelligent Technology & Engineering (IGNITE-2026)</div>
-          <div class="pub-meta">
-            <!-- <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1007/978-981-99-0000-0_12</div> -->
-            <div class="pub-meta-item"><span class="lbl">Publisher:</span>IEEE (Scopus Indexed)</div>
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2026</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-in">
-        <div class="pub-img">
-          <div class="pub-img-inner">
-            <div class="pub-img-icon">🏛️</div>
+            <img src="assets/img/ieee_icon.png" alt="Springer" class="pub-icon-file">
             <div class="pub-img-type">Conference</div>
           </div>
         </div>
@@ -1025,90 +1016,20 @@ footer{
         <div class="pub-body">
           <span class="pub-type-badge">PUBLISHED</span>
           <div class="pub-title">Comprehensive Multimodal Deep Learning Solution for Parkinson's Disease Diagnosis Using an Android Application</div>
-          <div class="pub-authors">Md Abu Sayem, Redwan Sharafat Kabir</div>
-          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>IEEE Computer Society Bangladesh Chapter Symposium 2024 At: Jagannath University, Dhaka, Bangladesh</div>
+          <div class="pub-authors">Authors: Md Abu Sayem, <b>Redwan Sharafat Kabir</b></div>
+
+          <div class="pub-citation">
+            <span class="cit-label">Citation</span>
+            Sayem, M. A., &amp; Kabir, R. S. "Comprehensive Multimodal Deep Learning Solution for Parkinson's Disease Diagnosis Using an Android Application." <em>Proceedings of the IEEE Computer Society Bangladesh Chapter Symposium (CSBS)</em>, Jagannath University, Dhaka, Bangladesh, 2024.
+          </div>
+
           <div class="pub-meta">
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
+            <div class="pub-meta-item"><span class="lbl">Venue:</span>Jagannath University, Dhaka, Bangladesh</div>
+            <div class="pub-meta-item"><span class="lbl">Publisher:</span>IEEE Computer Society Bangladesh Chapter</div>
+            <div class="pub-meta-item"><span class="lbl">Year:</span>2024</div>
           </div>
         </div>
       </div>
-
-      <div class="pub-card fade-in">
-        <div class="pub-img">
-          <div class="pub-img-inner">
-            <div class="pub-img-icon">🏛️</div>
-            <div class="pub-img-type">Conference</div>
-          </div>
-        </div>
-
-        <div class="pub-body">
-          <span class="pub-type-badge">PUBLISHED</span>
-          <div class="pub-title">Image-Based Automatic Price Calculation of Packaged Product to Guide Visually Impaired People</div>
-          <div class="pub-authors">Rakibuzzaman Melon, Md Abu Sayem, Redwan Sharafat Kabir</div>
-          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>International Conference on 4IR for Emerging Future -2022 At: Dhaka, Bangladesh</div>
-          <div class="pub-meta">
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-in">
-        <div class="pub-img">
-          <div class="pub-img-inner">
-            <div class="pub-img-icon">🏛️</div>
-            <div class="pub-img-type">Conference</div>
-          </div>
-        </div>
-
-        <div class="pub-body">
-          <span class="pub-type-badge">PUBLISHED</span>
-          <div class="pub-title">IOT-BASED GLOBAL POSITION MONITORING AND TRACKING OF THE MOTORIZED TRANSPORTATION SYSTEM</div>
-          <div class="pub-authors">Md Abu Sayem, Md. Siddiqur Rahman, Redwan Sharafat Kabir</div>
-          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>“Integrated Approach for Adapting 4IR” -BCSIR Congress-2022 Bangladesh Council of Scientific and Industrial Research (BCSIR)</div>
-          <div class="pub-meta">
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pub-card fade-in">
-        <div class="pub-img">
-          <div class="pub-img-inner">
-            <div class="pub-img-icon">🏛️</div>
-            <div class="pub-img-type">Conference</div>
-          </div>
-        </div>
-
-        <div class="pub-body">
-          <span class="pub-type-badge">PUBLISHED</span>
-          <div class="pub-title">Automatic Digital Car Parking Control System with Empty Slot Detection</div>
-          <div class="pub-authors">Md Abu Sayem, Md. Siddiqur Rahman, Redwan Sharafat Kabir</div>
-          <div class="pub-venue"><span class="lbl"><b>Conference: </b></span>International Conference on 4IR for Emerging Future -2022 At: Dhaka, Bangladesh</div>
-          <div class="pub-meta">
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2022</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="pub-card fade-in">
-        <div class="pub-img">
-          <div class="pub-img-inner">
-            <div class="pub-img-icon">📘</div>
-            <div class="pub-img-type">Book Chapter</div>
-          </div>
-        </div>
-        <div class="pub-body">
-          <span class="pub-type-badge">BOOK CHAPTER</span>
-          <div class="pub-title">Voice-Driven AI Commerce: Architectures, Challenges, and Future Directions in Conversational Automation</div>
-          <div class="pub-authors">Redwan Sharafat Kabir, Co-Author C</div>
-          <div class="pub-venue">Advances in Artificial Intelligence and Machine Learning Applications — Springer, Chapter 9, 2023</div>
-          <div class="pub-meta">
-            <div class="pub-meta-item"><span class="lbl">DOI:</span>10.1007/978-981-10-0000-9</div>
-            <div class="pub-meta-item"><span class="lbl">Publisher:</span>Springer</div>
-            <div class="pub-meta-item"><span class="lbl">Year:</span>2023</div>
-          </div>
-        </div>
-      </div> -->
 
     </div>
 
