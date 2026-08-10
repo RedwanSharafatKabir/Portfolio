@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redwan Sharafat Kabir - Software Engineer & Researcher</title>
+<title>Redwan Sharafat Kabir — Software Engineer & Researcher</title>
+<meta name="description" content="Redwan Sharafat Kabir — Software Engineer & Researcher specializing in Machine Learning, Computer Vision and Computational Intelligence.">
 
 <link href="assets/img/favicon.png" rel="icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
@@ -16,8 +18,11 @@
 </head>
 <body>
 
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- NAV -->
-<nav>
+<nav id="nav">
   <a href="#home" class="nav-logo">RSK<span>.dev</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -52,15 +57,15 @@
 
 <!-- SOCIAL FLOAT -->
 <div class="social-float">
-  <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank" class="sf-link">
+  <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank" rel="noopener" class="sf-link">
     <span class="sf-tooltip">LinkedIn</span>
     <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
   </a>
-  <a href="https://github.com/RedwanSharafatKabir/" target="_blank" class="sf-link">
+  <a href="https://github.com/RedwanSharafatKabir/" target="_blank" rel="noopener" class="sf-link">
     <span class="sf-tooltip">GitHub</span>
     <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
   </a>
-  <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank" class="sf-link">
+  <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank" rel="noopener" class="sf-link">
     <span class="sf-tooltip">Facebook</span>
     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
   </a>
@@ -71,20 +76,21 @@
 </div>
 
 <!-- HERO -->
-<section id="home" style="max-width:100%;padding:0">
+<section id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+  <canvas class="hero-neural" id="heroNeural"></canvas>
   <div class="hero-inner">
     <div class="hero-left fade-in">
-      <div class="hero-badge"><span class="dot"></span>Available for PhD Opportunities</div>
+      <div class="hero-badge">Available for PhD Opportunities</div>
       <h1 class="hero-title">Redwan<br><span class="name">Sharafat Kabir</span></h1>
       <p class="hero-sub">
-        <strong>Software Engineer & Researcher</strong> specializing in 
-        <strong>Machine Learning</strong>, <strong>Computer Vision</strong>, and 
-        <strong>Computational Intelligence</strong> - building intelligent systems that matter.
+        <strong>Software Engineer &amp; Researcher</strong> specializing in
+        <strong>Machine Learning</strong>, <strong>Computer Vision</strong>, and
+        <strong>Computational Intelligence</strong> — building intelligent systems that matter.
       </p>
       <div class="hero-cta">
-        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="#contact" class="btn-primary">Get In Touch <i class="fas fa-arrow-right"></i></a>
         <a href="#publications" class="btn-outline">View Research</a>
       </div>
       <div class="hero-stats">
@@ -93,24 +99,25 @@
       </div>
     </div>
 
-    <div class="hero-right fade-in" style="transition-delay:0.15s">
+    <div class="hero-right fade-in" style="transition-delay:.15s">
       <div class="hero-card">
-        <img
-          src="assets/img/profile_image.jpg"
-          alt="RSK"
-          class="hc-avatar-photo"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-        />
-        
-        <div class="hc-name">Redwan Sharafat Kabir</div>
-        <div class="hc-role">Software Engineer & Researcher</div>
-        <div class="hc-info">
-          <div class="hc-info-row"><span class="ico">📍</span>Dhaka, Bangladesh</div>
-          <div class="hc-info-row"><span class="ico">💼</span>CloudCoder Limited</div>
-          <div class="hc-info-row"><span class="ico"><i class="fas fa-envelope"></i></span>redwansharafat@gmail.com</div>
-          <div class="hc-info-row"><span class="ico"><i class="fas fa-phone"></i></span>+880 1816817211</div>
+        <div class="hc-avatar-wrap">
+          <img
+            src="assets/img/profile_image.jpg"
+            alt="Redwan Sharafat Kabir"
+            class="hc-avatar-photo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          />
+          <div class="hc-avatar-fallback">RSK</div>
         </div>
-        
+
+        <div class="hc-name">Redwan Sharafat Kabir</div>
+        <div class="hc-role">Software Engineer &amp; Researcher</div>
+        <div class="hc-info">
+          <div class="hc-info-row"><span class="ico"><i class="fas fa-location-dot"></i></span>Dhaka, Bangladesh</div>
+          <div class="hc-info-row"><span class="ico"><i class="fas fa-building"></i></span>CloudCoder Limited</div>
+          <div class="hc-info-row"><span class="ico"><i class="fas fa-envelope"></i></span>redwansharafat@gmail.com</div>
+        </div>
       </div>
     </div>
 
@@ -119,8 +126,8 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="fade-in">
-    <div class="section-label">01 — About</div>
+  <div class="section-head fade-in">
+    <div class="section-label">About</div>
     <h2 class="section-title">Who I <span>Am</span></h2>
     <div class="divider"></div>
   </div>
@@ -131,29 +138,29 @@
       <p>I am actively seeking an opportunity to pursue a <strong>Ph.D.</strong> where I can make significant contributions aligned with my interests and collaborate with leading experts in the field.</p>
       <div class="about-highlights">
         <div class="highlight-card">
-          <div class="hc-icon">🧠</div>
+          <div class="hc-icon"><i class="fas fa-brain"></i></div>
           <div class="hc-hl-title">AI Research</div>
           <div class="hc-hl-text">Deep Learning, Computer Vision, Computational Intelligence</div>
         </div>
         <div class="highlight-card">
-          <div class="hc-icon">📱</div>
+          <div class="hc-icon"><i class="fas fa-mobile-screen-button"></i></div>
           <div class="hc-hl-title">Mobile Dev</div>
           <div class="hc-hl-text">Flutter, Kotlin, Android — production-ready apps</div>
         </div>
         <div class="highlight-card">
-          <div class="hc-icon">🎓</div>
+          <div class="hc-icon"><i class="fas fa-graduation-cap"></i></div>
           <div class="hc-hl-title">PhD Seeking</div>
           <div class="hc-hl-text">Open to international PhD opportunities in ML/AI</div>
         </div>
         <div class="highlight-card">
-          <div class="hc-icon">🔬</div>
+          <div class="hc-icon"><i class="fas fa-microscope"></i></div>
           <div class="hc-hl-title">M.Sc. Research</div>
           <div class="hc-hl-text">Neuroinformatics, Digital Image Processing</div>
         </div>
       </div>
     </div>
-    <div class="fade-in" style="transition-delay:0.15s">
-      <div class="section-label" style="margin-bottom:1.2rem">Academic Timeline</div>
+    <div class="fade-in" style="transition-delay:.15s">
+      <div class="sub-label">Academic Timeline</div>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -171,14 +178,12 @@
           <div class="tl-period">2017 - 2021</div>
           <div class="tl-title">Bachelor of Science - CSE</div>
           <div class="tl-place">Daffodil International University, Savar, Dhaka</div>
-
           <div class="tl-tags">
             <span class="tl-tag">Data Structures</span><span class="tl-tag">Algorithms</span>
             <span class="tl-tag">Software Engineering</span><span class="tl-tag">Wireless Programming</span>
             <span class="tl-tag">System Analysis and Design</span>
             <span class="tl-tag">Data Mining</span><span class="tl-tag">Artificial Intelligence</span>
           </div>
-
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -198,10 +203,10 @@
 </section>
 
 <!-- SKILLS -->
-<div id="skills">
+<section class="band" id="skills">
   <div class="inner">
-    <div class="fade-in">
-      <div class="section-label">02 - Skills</div>
+    <div class="section-head fade-in">
+      <div class="section-label">Skills</div>
       <h2 class="section-title">Technical <span>Expertise</span></h2>
       <div class="divider"></div>
     </div>
@@ -212,81 +217,69 @@
         <div class="skill-name">Flutter</div>
         <div class="skill-cat">Multi Platform</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-dart-plain colored"></i></div>
         <div class="skill-name">Dart</div>
         <div class="skill-cat">Programming</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-kotlin-plain colored"></i></div>
         <div class="skill-name">Kotlin</div>
         <div class="skill-cat">Android</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-java-plain colored"></i></div>
         <div class="skill-name">Java</div>
         <div class="skill-cat">Android</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
         <div class="skill-name">MVVM</div>
         <div class="skill-cat">Architecture</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-python-plain colored"></i></div>
         <div class="skill-name">Python</div>
         <div class="skill-cat">Programming</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-pytorch-original colored"></i></div>
         <div class="skill-name">PyTorch</div>
         <div class="skill-cat">AI/ML</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-tensorflow-original colored"></i></div>
         <div class="skill-name">TensorFlow</div>
         <div class="skill-cat">AI/ML</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-firebase-plain colored"></i></div>
         <div class="skill-name">Firebase</div>
         <div class="skill-cat">Database</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="fas fa-database"></i></div>
         <div class="skill-name">Realm</div>
         <div class="skill-cat">No SQL</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-html5-plain colored"></i></div>
         <div class="skill-name">HTML/CSS</div>
         <div class="skill-cat">Frontend</div>
       </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
-        <div class="skill-name">Git & GitHub</div>
+        <div class="skill-name">Git &amp; GitHub</div>
         <div class="skill-cat">Version Control</div>
       </div>
-
     </div>
   </div>
-</div>
+</section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="fade-in">
-    <div class="section-label">03 — Experience</div>
+  <div class="section-head fade-in">
+    <div class="section-label">Experiences</div>
     <h2 class="section-title">Professional <span>Journey</span></h2>
     <div class="divider"></div>
   </div>
@@ -321,57 +314,57 @@
 </section>
 
 <!-- PROJECTS -->
-<div id="services">
+<section class="band" id="services">
   <div class="inner">
-    <div class="fade-in">
-      <div class="section-label">04 - Projects</div>
+    <div class="section-head fade-in">
+      <div class="section-label">Projects</div>
       <h2 class="section-title">Featured <span>Works</span></h2>
       <div class="divider"></div>
     </div>
     <div class="services-grid">
       <div class="project-card fade-in">
-        <div class="project-img">🛍️<span class="project-badge">Conversational Commerce</span></div>
+        <div class="project-img"><i class="fas fa-bag-shopping"></i><span class="project-badge">Conversational Commerce</span></div>
         <div class="project-body">
           <div class="project-title">JIFF - Social Commerce Platform</div>
           <div class="project-desc">A comprehensive e-commerce business management app for social media entrepreneurs, enabling live selling, order management, vendor dashboards, and seamless business operations.</div>
           <div class="project-tech">
-            <span class="ptech">Flutter</span><span class="ptech">Dart</span><span class="ptech">Firebase</span><span class="ptech">RESTful API</span>
-          </div>
-        </div>
-      </div>
-        
-      <div class="project-card fade-in">
-        <div class="project-img">🎙️<span class="project-badge">AI-Powered Assistant</span></div>
-        <div class="project-body">
-          <div class="project-title">AIM - Voice AI Commerce Assistant</div>
-          <div class="project-desc">An intelligent voice-first assistant app for booking appointments and selling products/services, fully controlled through natural language voice commands and automation.</div>
-          <div class="project-tech">
-            <span class="ptech">Kotlin</span><span class="ptech">MVVM</span><span class="ptech">Voice NLP</span><span class="ptech">Firebase</span>
+            <span class="ptech">Kotlin</span><span class="ptech">Android</span><span class="ptech">MVVM</span><span class="ptech">Firebase</span><span class="ptech">RESTful API</span>
           </div>
         </div>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-img">📺<span class="project-badge">Realtime Viewership Analysis</span></div>
+        <div class="project-img"><i class="fas fa-microphone-lines"></i><span class="project-badge">AI-Powered Assistant</span></div>
+        <div class="project-body">
+          <div class="project-title">AIM - Voice AI Commerce Assistant</div>
+          <div class="project-desc">An intelligent voice-first assistant app for booking appointments and selling products/services, fully controlled through natural language voice commands and automation.</div>
+          <div class="project-tech">
+            <span class="ptech">Kotlin</span><span class="ptech">Android</span><span class="ptech">MVVM</span><span class="ptech">Voice NLP</span><span class="ptech">Firebase</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-img"><i class="fas fa-tv"></i><span class="project-badge">Realtime Viewership Analysis</span></div>
         <div class="project-body">
           <div class="project-title">TRP Analytics System</div>
           <div class="project-desc">Real-time Television Rating Point monitoring app using TensorFlow Lite for channel logo detection and Perceptual Hash Algorithm for viewership data analysis.</div>
           <div class="project-tech">
-            <span class="ptech">TFLite</span><span class="ptech">pHash</span><span class="ptech">Android</span><span class="ptech">CV</span>
+            <span class="ptech">Kotlin</span><span class="ptech">Android</span><span class="ptech">MVVM</span><span class="ptech">TFLite</span><span class="ptech">pHash</span><span class="ptech">Open CV</span>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-</div>
+</section>
 
 <!-- PUBLICATIONS -->
-<div id="publications">
+<section class="band" id="publications">
   <div class="inner">
-    <div class="fade-in">
-      <div class="section-label">05 - Research</div>
-      <h2 class="section-title">Research & <span>Publications</span></h2>
+    <div class="section-head fade-in">
+      <div class="section-label">Research</div>
+      <h2 class="section-title">Research &amp; <span>Publications</span></h2>
       <div class="divider"></div>
     </div>
 
@@ -380,28 +373,22 @@
       <div class="pub-card fade-in">
         <div class="pub-img">
           <div class="pub-img-inner">
-            <img src="assets/img/wiley_icon.png" alt="Springer" class="pub-icon-file">
+            <img src="assets/img/wiley_icon.png" alt="Wiley" class="pub-icon-file">
             <div class="pub-img-type">Book Chapter</div>
           </div>
         </div>
-
         <div class="pub-body">
           <span class="pub-type-badge">ACCEPTED [IN PRESS]</span>
           <div class="pub-authors">Authors: Md Abu Sayem , Prof (Dr.) Mamta Dahiya, <b>Redwan Sharafat Kabir</b>, Arko Bagchi</div>
           <div class="pub-title">Spatial Analysis and Machine Learning-Based Earthquake Prediction Using Real-Time Seismic Data</div>
-
           <div class="pub-meta">
             <div class="pub-meta-item"><span class="lbl">Publisher:</span>Scrivener Publishing, Wiley</div>
           </div>
-          
-          <br>
-
           <div class="pub-citation">
             <span class="cit-label">Citation</span>
-            Sayem, M. A., Dahiya, M., Kabir, R. S., & Bagchi, A. (2026). Spatial Analysis and Machine Learning-Based Earthquake Prediction Using Real-Time Seismic Data. In the book" 
+            Sayem, M. A., Dahiya, M., Kabir, R. S., &amp; Bagchi, A. (2026). Spatial Analysis and Machine Learning-Based Earthquake Prediction Using Real-Time Seismic Data. In the book"
             <em>Artificial Intelligence Hybrid Neural Network</em>, Scrivener Publishing, Wiley.
           </div>
-
         </div>
       </div>
 
@@ -412,70 +399,55 @@
             <div class="pub-img-type">Conference</div>
           </div>
         </div>
-
         <div class="pub-body">
           <span class="pub-type-badge">ACCEPTED [IN PRESS]</span>
           <div class="pub-authors">Authors: <b>Redwan Sharafat Kabir</b>, Md. Abu Sayem</div>
           <div class="pub-title">Lung-DLNet: A Novel Deep Learning Application Architecture for Rapid and Early Prediction of Lung Cancer using CT Imaging</div>
-
           <div class="pub-meta">
             <div class="pub-meta-item"><span class="lbl">Book Proceedings:</span>Recent Trends in Artificial Intelligence and Data Sciences</div>
             <div class="pub-meta-item"><span class="lbl">Publisher:</span>Springer Nature Link (Scopus Indexed)</div>
           </div>
-
-          <br>
-
           <div class="pub-citation">
             <span class="cit-label">Citation</span>
             Kabir, R. S., &amp; Sayem, M. A. "Lung-DLNet: A Novel Deep Learning Application Architecture for Rapid and Early Prediction of Lung Cancer using CT Imaging." <em>Proceedings of the 16th International Conference on Cloud Computing, Data Science &amp; Engineering (Confluence)</em>, 2026.
           </div>
-
         </div>
       </div>
 
       <div class="pub-card fade-in">
         <div class="pub-img">
           <div class="pub-img-inner">
-            <img src="assets/img/ieee_icon.png" alt="Springer" class="pub-icon-file">
+            <img src="assets/img/ieee_icon.png" alt="IEEE" class="pub-icon-file">
             <div class="pub-img-type">Symposium</div>
           </div>
         </div>
-
         <div class="pub-body">
           <span class="pub-type-badge">PUBLISHED</span>
           <div class="pub-authors">Authors: Md. Abu Sayem, <b>Redwan Sharafat Kabir</b></div>
           <div class="pub-title">Comprehensive Multimodal Deep Learning Solution for Parkinson's Disease Diagnosis Using an Android Application</div>
-
           <div class="pub-meta">
             <div class="pub-meta-item"><span class="lbl">Publisher:</span>IEEE Computer Society Bangladesh Chapter</div>
           </div>
-          
-          <br>
-
           <div class="pub-citation">
             <span class="cit-label">Citation</span>
             Sayem, M. A., &amp; Kabir, R. S. "Comprehensive Multimodal Deep Learning Solution for Parkinson's Disease Diagnosis Using an Android Application." <em>Proceedings of the IEEE Computer Society Bangladesh Chapter Symposium (CSBS)</em>, Jagannath University, Dhaka, Bangladesh, 2024.
           </div>
-
         </div>
       </div>
 
     </div>
-
   </div>
-</div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="fade-in">
-    <div class="section-label">06 - Contact</div>
+  <div class="section-head fade-in">
+    <div class="section-label">Contact</div>
     <h2 class="section-title">Let's <span>Connect</span></h2>
     <div class="divider"></div>
   </div>
   <div class="contact-grid">
     <div class="fade-in">
-      
-      
       <div class="contact-info">
         <a href="tel:+8801816817211" class="contact-card">
           <div class="cc-icon"><i class="fas fa-phone"></i></div>
@@ -484,7 +456,6 @@
             <div class="cc-val">+880 1816 817211</div>
           </div>
         </a>
-
         <a href="mailto:redwansharafat@gmail.com" class="contact-card">
           <div class="cc-icon"><i class="fas fa-envelope"></i></div>
           <div>
@@ -492,36 +463,31 @@
             <div class="cc-val">redwansharafat@gmail.com</div>
           </div>
         </a>
-
-        <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank" class="contact-card">
-          <div class="cc-icon"><i class="fab fa-linkedin"></i></div>
+        <a href="https://www.linkedin.com/in/redwan-sharafat/" target="_blank" rel="noopener" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-linkedin-in"></i></div>
           <div>
             <div class="cc-label">LINKEDIN</div>
             <div class="cc-val">redwan-sharafat</div>
           </div>
         </a>
-
-        <a href="https://github.com/RedwanSharafatKabir/" target="_blank" class="contact-card">
+        <a href="https://github.com/RedwanSharafatKabir/" target="_blank" rel="noopener" class="contact-card">
           <div class="cc-icon"><i class="fab fa-github"></i></div>
           <div>
             <div class="cc-label">GITHUB</div>
             <div class="cc-val">RedwanSharafatKabir</div>
           </div>
         </a>
-
-        <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank" class="contact-card">
-          <div class="cc-icon"><i class="fab fa-facebook"></i></div>
+        <a href="https://www.facebook.com/RedwanSharafatKabir/" target="_blank" rel="noopener" class="contact-card">
+          <div class="cc-icon"><i class="fab fa-facebook-f"></i></div>
           <div>
             <div class="cc-label">FACEBOOK</div>
             <div class="cc-val">RedwanSharafatKabir</div>
           </div>
         </a>
-
       </div>
-
     </div>
 
-    <div class="contact-form fade-in" style="transition-delay:0.15s">
+    <div class="contact-form fade-in" style="transition-delay:.15s">
       <div class="form-group">
         <label>Your Name</label>
         <input type="text" placeholder="Full Name">
@@ -538,14 +504,14 @@
         <label>Message</label>
         <textarea placeholder="Tell me about your opportunity or project..."></textarea>
       </div>
-      <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
+      <button class="submit-btn" onclick="handleSubmit()">Send Message <i class="fas fa-paper-plane"></i></button>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p class="footer-text">Designed & Built by <span>Redwan Sharafat Kabir</span> · 2026 · All rights reserved</p>
+  <p class="footer-text">Designed &amp; Built by <span>Redwan Sharafat Kabir</span> · 2026 · All rights reserved</p>
 </footer>
 
 <script src="assets/js/style.js"></script>
