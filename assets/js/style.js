@@ -1,5 +1,5 @@
 /* ===== Theme toggle ===== */
-let isDark = true;
+let isDark = false;
 function toggleTheme(){
   isDark = !isDark;
   document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
@@ -77,7 +77,7 @@ function handleSubmit(){
 
   const ctx = canvas.getContext('2d');
   let w, h, dpr, nodes = [], raf, running = true;
-  let colors = { node: 'rgba(120,235,170,0.95)', line: 'rgba(64,214,180,0.6)' };
+  let colors = { node: 'rgba(20,20,20,0.85)', line: 'rgba(20,20,20,0.45)' };
 
   const MARGIN = 40;    // let the web bleed slightly past the edges (full-bleed look)
   const LINK   = 185;   // connection distance — tuned so the nodes form ONE mesh
@@ -88,10 +88,10 @@ function handleSubmit(){
   let rect = null;
 
   function readColors(){
-    const light = document.documentElement.getAttribute('data-theme') === 'light';
-    colors = light
-      ? { node: 'rgba(0,90,115,0.85)',  line: 'rgba(0,90,115,0.5)' }
-      : { node: 'rgba(120,235,170,0.95)', line: 'rgba(64,214,180,0.6)' };
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    colors = dark
+      ? { node: 'rgba(230,230,230,0.9)', line: 'rgba(200,200,200,0.5)' }
+      : { node: 'rgba(20,20,20,0.85)',  line: 'rgba(20,20,20,0.45)' };
   }
 
   function resize(){
