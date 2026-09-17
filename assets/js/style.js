@@ -3,9 +3,9 @@ let isDark = false;
 function toggleTheme(){
   isDark = !isDark;
   document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-  document.getElementById('themeBtn').children[0].textContent = isDark ? '🌙' : '☀️';
-  document.getElementById('themeLabel').textContent = isDark ? 'Dark' : 'Light';
-  document.getElementById('mobileThemeIcon').textContent = isDark ? '🌙' : '☀️';
+  document.getElementById('themeBtn').children[0].textContent = isDark ? '☀️' : '🌙';
+  document.getElementById('themeLabel').textContent = isDark ? 'Switch to Light' : 'Switch to Dark';
+  document.getElementById('mobileThemeIcon').textContent = isDark ? '☀️' : '🌙';
   document.getElementById('mobileThemeLabel').textContent = isDark ? 'Switch to Light' : 'Switch to Dark';
   if (window.__neural) window.__neural.recolor();
 }
